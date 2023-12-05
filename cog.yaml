@@ -1,0 +1,27 @@
+# Configuration for Cog ⚙️
+# Reference: https://github.com/replicate/cog/blob/main/docs/yaml.md
+
+build:
+  gpu: false  # Set to true if you need GPU support
+
+  python_version: "3.11"  # Specify the Python version
+
+  # Include system packages required by your Predictor
+  system_packages:
+    - "ffmpeg"  # Required for video processing
+    - "fonts-liberation"  # You might need this for font support
+
+  # Include any Python packages your Predictor needs
+  python_packages:
+    # - "numpy==1.19.4"  # Example: Uncomment and modify as needed
+    # - "torch==1.8.0"  # Example: Uncomment and modify as needed
+    # - "torchvision==0.9.0"  # Example: Uncomment and modify as needed
+
+  # Commands to run after the environment is setup
+  run:
+#    - "mkdir -p /usr/share/fonts/truetype/anton"  # Create a directory for the Anton font
+#    - "cp Anton-Regular.ttf /usr/share/fonts/truetype/anton/"  # Copy Anton font to the fonts directory
+#    - "fc-cache -fv"  # Refresh the font cache
+
+# predict.py defines how predictions are run on your model
+predict: "predict.py:Predictor"
